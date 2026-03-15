@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>neirosound · доступ по входу</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Inter', system-ui, sans-serif;
+            background: radial-gradient(circle at 20% 30%, #0b1428, #02040c);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #e3ecff;
+            position: relative;
+        }
+
+        /* затемнение фона, пока контент скрыт — но модальное окно и так перекрывает */
+        .content-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: filter 0.2s;
+        }
+
+        /* FLOAT-УВЕДОМЛЕНИЯ (слева снизу) */
+        .notification-container {
+            position: fixed;
+            left: 30px;
+            bottom: 30px;
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            pointer-events: none;
+            max-width: 320px;
+        }
+
+        .notif-toast {
+            background: rgba(10, 22, 55, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-left: 5px solid #4f82ff;
+            border-radius: 20px;
+            padding: 16px 22px;
+            box-shadow: 0 15px 30px -8px #000000, 0 0 0 1px #2e4885 inset, 0 0 20px #142b60;
+            color: #d6e5ff;
+            font-weight: 450;
+            transform: translateX(0);
+            animation: slideInLeft 0.3s ease, fadeOut 0.3s ease 3.8s forwards;
+            pointer-events: none;
+            border-top: 1px solid #3b62cf;
+            border-right: 1px solid #263b6e;
+            font-size: 1rem;
+            line-height: 1.5;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .notif-toast.success { border-left-color: #5cb85c; }
+        .notif-toast.info { border-left-color: #4f82ff; }
+        .notif-toast.warning { border-left-color: #ffae42; }
+        .notif-icon { font-size: 1.8rem; filter: drop-shadow(0 0 5px currentColor); }
+
+        @keyframes slideInLeft {
+            from { transform: translateX(-50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes fadeOut {
+            to { opacity: 0; transform: translateX(-20px); }
+        }
+
+        /* Кнопка входа/профиля (видна только после авторизации) */
+        .auth-button {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            z-index: 100;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .auth-btn {
+            background: rgba(18, 36, 84, 0.8);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid #3b62cf;
+            border-radius: 50px;
+            padding: 10px 24px;
+            font-weight: 500;
+            color: #ecf2ff;
+            cursor: pointer;
+            transition: 0.15s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            font-size: 1rem;
+            letter-spacing: 0.3px;
+        }
+
+        .auth-btn:hover {
+            background: #1f3a7a;
+            border-color: #6f9cff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+        }
+        .auth-btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .badge-role {
+            background: #1f3a7a;
+            border-radius: 30px;
+            padding: 4px 14px;
+            font-size: 0.85rem;
+            border: 1px solid #4f82ff;
+            color: #bfd6ff;
+            display: inline-block;
+        }
+
+        /* МОДАЛЬНОЕ ОКНО ВХОДА — теперь всегда показано сначала (display:flex через JS) */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            display: flex; /* по умолчанию flex, но управляем через JS */
+            justify-content: center;
+            align-items: center;
+            z-index: 3000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-container {
+            background: #0a1330;
+            border: 2px solid #2e4885;
+            border-radius: 30px;
+            padding: 40px;
+            width: 90%;
+            max-width: 430px;
+            box-shadow: 0 25px 45px -10px #000000, 0 0 0 2px #2f4a99 inset, 0 0 30px #1d3d88;
+            animation: slideUp 0.3s ease;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 28px;
+            color: #6180cf;
+            cursor: pointer;
+            transition: 0.15s;
+            line-height: 1;
+        }
+        .modal-close:hover {
+            color: #9cb6ff;
+            transform: scale(1.1);
+        }
+
+        .modal-title {
+            font-size: 2rem;
+            font-weight: 500;
+            background: linear-gradient(145deg, #bfd6ff, #4f82ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 25px;
+            text-align: center;
+            letter-spacing: -0.5px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #b2caff;
+            font-size: 0.95rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 15px 20px;
+            background: #0d1c39;
+            border: 1px solid #2e4885;
+            border-radius: 50px;
+            color: white;
+            font-size: 1rem;
+            transition: 0.15s;
+            outline: none;
+        }
+        .form-input:focus {
+            border-color: #4f82ff;
+            box-shadow: 0 0 15px #2651c9;
+        }
+        .form-input::placeholder {
+            color: #4a618f;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 16px;
+            background: #102458;
+            border: 1px solid #3b62cf;
+            border-radius: 50px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.15s;
+            margin-top: 10px;
+            box-shadow: 0 6px 0 #0b1a44;
+        }
+        .form-submit:hover {
+            background: #17327a;
+            border-color: #6f9cff;
+            transform: translateY(-3px);
+            box-shadow: 0 9px 0 #0b1a44;
+        }
+        .form-submit:active {
+            transform: translateY(5px);
+            box-shadow: 0 3px 0 #0b1a44;
+        }
+
+        .message-box {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 50px;
+            text-align: center;
+            display: none;
+        }
+        .message-box.success {
+            background: rgba(79, 130, 255, 0.1);
+            color: #4f82ff;
+            display: block;
+        }
+        .message-box.error {
+            background: rgba(255, 79, 79, 0.1);
+            color: #ff6b6b;
+            display: block;
+        }
+
+        /* Админ-панель */
+        .admin-panel {
+            background: #0a1330cc;
+            backdrop-filter: blur(12px);
+            border: 2px solid #3d5db0;
+            border-radius: 40px;
+            padding: 28px 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 30px -5px #030613, 0 0 0 1px #4f82ff inset;
+        }
+
+        .admin-title {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: #c8dcff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .admin-title span { font-size: 2rem; }
+
+        .user-list {
+            background: #0b1633;
+            border-radius: 30px;
+            padding: 20px;
+            margin: 15px 0 20px 0;
+            border: 1px solid #3453a0;
+        }
+
+        .user-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 8px;
+            border-bottom: 1px solid #253e7a;
+        }
+        .user-item:last-child { border-bottom: none; }
+        .user-email { font-weight: 500; color: #b6d0ff; }
+        .user-role {
+            background: #1f3470;
+            border-radius: 40px;
+            padding: 4px 12px;
+            font-size: 0.8rem;
+            color: #b2c9ff;
+        }
+        .delete-user {
+            background: #511c3a;
+            border: 1px solid #b14f6f;
+            color: #ffb3c6;
+            border-radius: 30px;
+            padding: 4px 14px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: 0.1s;
+        }
+        .delete-user:hover {
+            background: #722b4b;
+            color: white;
+        }
+
+        .add-user-form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            margin-top: 15px;
+        }
+        .add-user-input {
+            flex: 2 1 200px;
+            padding: 14px 18px;
+            background: #0d1c39;
+            border: 1px solid #3d5db0;
+            border-radius: 60px;
+            color: white;
+        }
+        .add-user-input:focus { border-color: #6f9cff; }
+        .add-user-btn {
+            background: #173a77;
+            border: 1px solid #4f82ff;
+            border-radius: 60px;
+            padding: 14px 28px;
+            font-weight: 600;
+            color: white;
+            cursor: pointer;
+            transition: 0.15s;
+            box-shadow: 0 5px 0 #0c2048;
+            flex: 1 0 auto;
+        }
+        .add-user-btn:hover {
+            background: #224b99;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 0 #0c2048;
+        }
+        .add-user-btn:active {
+            transform: translateY(3px);
+            box-shadow: 0 2px 0 #0c2048;
+        }
+
+        /* основной контейнер (изначально скрыт, показывается после входа) */
+        .container {
+            width: 90%;
+            max-width: 760px;
+            background: rgba(6, 12, 28, 0.85);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid #263b6e;
+            border-radius: 40px;
+            padding: 32px 28px;
+            box-shadow: 0 25px 45px -10px #000000, 0 0 0 1px #2f4a99 inset;
+            margin: 20px;
+            margin-top: 70px;
+            display: none; /* скрыт до авторизации */
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 500;
+            background: linear-gradient(145deg, #bfd6ff, #4f82ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+            text-shadow: 0 0 20px #1445b0;
+        }
+
+        .sub {
+            color: #6180cf;
+            margin-bottom: 28px;
+            border-bottom: 1px solid #20345e;
+            padding-bottom: 12px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        .dialog-window {
+            background: #0a1022e0;
+            border: 1px solid #2e4885;
+            border-radius: 30px;
+            padding: 24px 20px;
+            margin-bottom: 32px;
+            box-shadow: inset 0 0 25px #000000, 0 10px 0 #0b1530;
+            max-height: 400px;
+            overflow-y: auto;
+            scroll-behavior: smooth;
+        }
+
+        .dialog-window::-webkit-scrollbar {
+            width: 6px;
+        }
+        .dialog-window::-webkit-scrollbar-track {
+            background: #0d1a30;
+            border-radius: 10px;
+        }
+        .dialog-window::-webkit-scrollbar-thumb {
+            background: #2d509e;
+            border-radius: 10px;
+        }
+
+        .message-row {
+            display: flex;
+            margin-bottom: 22px;
+            animation: appear 0.2s ease;
+        }
+        .message-row.bot { justify-content: flex-start; }
+        .message-row.user { justify-content: flex-end; }
+
+        .bubble {
+            max-width: 85%;
+            padding: 14px 20px;
+            border-radius: 24px;
+            font-size: 1rem;
+            line-height: 1.5;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.7);
+            word-break: break-word;
+        }
+        .bot .bubble {
+            background: #121f41;
+            border: 1px solid #385bb0;
+            border-bottom-left-radius: 6px;
+            color: #deebff;
+        }
+        .user .bubble {
+            background: #192f62;
+            border: 1px solid #4f82ff;
+            border-bottom-right-radius: 6px;
+            color: white;
+        }
+
+        .audio-message {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            min-width: 240px;
+        }
+        .audio-message span {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .audio-player {
+            width: 100%;
+            height: 42px;
+            border-radius: 30px;
+            background: #0d1c39;
+            border: 1px solid #3f6ad0;
+        }
+        audio {
+            width: 100%;
+            height: 100%;
+            border-radius: 30px;
+            outline: none;
+        }
+        audio::-webkit-media-controls-panel {
+            background: #0f1f42;
+        }
+        audio::-webkit-media-controls-current-time-display,
+        audio::-webkit-media-controls-time-remaining-display {
+            color: #b8ceff;
+        }
+
+        .timestamp {
+            font-size: 0.7rem;
+            opacity: 0.6;
+            margin-top: 6px;
+            text-align: right;
+        }
+
+        .upload-panel {
+            background: #0a1330;
+            border-radius: 60px;
+            padding: 10px 16px 10px 26px;
+            border: 1px solid #2c4893;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 18px;
+            box-shadow: 0 8px 0 #0c1738, 0 0 15px #1d3d88;
+        }
+
+        .file-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #b2caff;
+            font-size: 1rem;
+        }
+        .file-info .icon {
+            font-size: 1.7rem;
+            filter: drop-shadow(0 0 5px #2d6eff);
+        }
+
+        .upload-btn {
+            background: #102458;
+            border: 1px solid #3b62cf;
+            border-radius: 50px;
+            padding: 14px 32px;
+            font-weight: 600;
+            color: #ecf2ff;
+            cursor: pointer;
+            transition: 0.15s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 6px 0 #0b1a44;
+            font-size: 1.1rem;
+            letter-spacing: 0.3px;
+        }
+        .upload-btn:hover {
+            background: #17327a;
+            border-color: #6f9cff;
+            transform: translateY(-3px);
+            box-shadow: 0 9px 0 #0b1a44;
+        }
+        .upload-btn:active {
+            transform: translateY(5px);
+            box-shadow: 0 3px 0 #0b1a44;
+        }
+
+        .hidden-input { display: none; }
+        .filename {
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-weight: 400;
+        }
+        .glow {
+            animation: borderPulse 4s infinite alternate;
+        }
+
+        @keyframes borderPulse {
+            0% { border-color: #1e3b77; box-shadow: 0 8px 0 #0c1738, 0 0 10px #13348b; }
+            100% { border-color: #3f70d9; box-shadow: 0 8px 0 #0c1738, 0 0 30px #2651c9; }
+        }
+
+        @media (max-width: 500px) {
+            .auth-button { top: 10px; right: 15px; }
+            .auth-btn { padding: 8px 16px; font-size: 0.9rem; }
+            .modal-container { padding: 30px 20px; margin: 20px; }
+            .container { padding: 22px; margin-top: 60px; }
+            .upload-panel { flex-direction: column; align-items: stretch; }
+            .file-info { justify-content: center; }
+            .notification-container { left: 15px; bottom: 15px; max-width: 260px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- КОНТЕЙНЕР ДЛЯ FLOAT-УВЕДОМЛЕНИЙ -->
+    <div class="notification-container" id="notificationContainer"></div>
+
+    <!-- КНОПКА ВХОДА (изначально скрыта, показывается после авторизации) -->
+    <div class="auth-button" id="authButtonGroup" style="display: none;">
+        <button class="auth-btn" id="showAuthModal">
+            <span>👤</span> Войти
+        </button>
+        <span class="badge-role" id="roleBadge" style="display: none;">гость</span>
+    </div>
+
+    <!-- МОДАЛЬНОЕ ОКНО ВХОДА (изначально открыто) -->
+    <div class="modal-overlay" id="authModal" style="display: flex;">
+        <div class="modal-container">
+            <div class="modal-close" id="closeAuthModal" style="display: none;">&times;</div> <!-- крестик скрыт, т.к. без входа нельзя закрыть -->
+            <div class="modal-title">вход в систему</div>
+            <div class="login-form">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-input" id="loginEmail" placeholder="email" autofocus>
+                </div>
+                <div class="form-group">
+                    <label>Пароль</label>
+                    <input type="password" class="form-input" id="loginPassword" placeholder="••••••••">
+                </div>
+                <button class="form-submit" id="loginButton">Войти</button>
+                <div class="message-box" id="loginMessage"></div>
+                <div style="margin-top: 20px; text-align: center; color: #6d8de0; font-size: 0.9rem;">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ОСНОВНОЙ КОНТЕНТ (скрыт до авторизации) -->
+    <div class="container" id="mainContainer" style="display: none;">
+        <h1>neirosound</h1>
+        <div class="sub">аудио · распознавание · доступ</div>
+
+        <!-- Блок администратора (виден только admin) -->
+        <div id="adminPanelContainer" style="display: none;"></div>
+
+        <div class="dialog-window" id="dialogWindow">
+            <div class="message-row bot">
+                <div class="bubble">
+                     Загрузи аудио — узнай, кто передаёт сигнал.
+                    <div class="timestamp">12:04</div>
+                </div>
+            </div>
+            <div class="message-row bot">
+                <div class="bubble">
+                    MP3, WAV, FLAC, OGG, M4A. Нажми кнопку внизу.
+                    <div class="timestamp">12:05</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="upload-panel glow">
+            <div class="file-info">
+                <span class="icon">⏵⏺</span>
+                <span id="file-status" class="filename">файл не выбран</span>
+            </div>
+            <label for="audio-upload" class="upload-btn" id="uploadLabel">
+                <span>⬆</span> Загрузить звук
+            </label>
+            <input type="file" id="audio-upload" class="hidden-input" accept="audio/*,.mp3,.wav,.ogg,.flac,.aac,.m4a,.opus">
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            // ---------- ПОКАЗ FLOAT-УВЕДОМЛЕНИЙ ----------
+            const notifContainer = document.getElementById('notificationContainer');
+            function showFloatingNotification(message, type = 'info', icon = '🔔') {
+                const toast = document.createElement('div');
+                toast.className = `notif-toast ${type}`;
+                toast.innerHTML = `<span class="notif-icon">${icon}</span><span>${message}</span>`;
+                notifContainer.appendChild(toast);
+                setTimeout(() => {
+                    if (toast.parentNode) toast.remove();
+                }, 4200);
+            }
+
+            // ---------- БАЗА ПОЛЬЗОВАТЕЛЕЙ ----------
+            let users = [
+                { email: 'adm@gmail.com', password: '123', role: 'admin' }
+            ];
+            let currentUser = null;
+
+            // DOM элементы
+            const modal = document.getElementById('authModal');
+            const closeBtn = document.getElementById('closeAuthModal'); // крестик скрыт, но оставим
+            const loginMessage = document.getElementById('loginMessage');
+            const loginEmail = document.getElementById('loginEmail');
+            const loginPassword = document.getElementById('loginPassword');
+            const loginButton = document.getElementById('loginButton');
+            const roleBadge = document.getElementById('roleBadge');
+            const authGroup = document.getElementById('authButtonGroup');
+            const adminPanelContainer = document.getElementById('adminPanelContainer');
+            const dialog = document.getElementById('dialogWindow');
+            const fileInput = document.getElementById('audio-upload');
+            const fileStatus = document.getElementById('file-status');
+            const mainContainer = document.getElementById('mainContainer');
+
+            // Вспомогательные
+            function currentTimeString() {
+                const d = new Date();
+                return d.getHours().toString().padStart(2,'0') + ':' + d.getMinutes().toString().padStart(2,'0');
+            }
+
+            function addMessage(sender, htmlContent) {
+                const messageRow = document.createElement('div');
+                messageRow.className = `message-row ${sender}`;
+                const bubble = document.createElement('div');
+                bubble.className = 'bubble';
+                const timeStr = currentTimeString();
+                const contentWrapper = document.createElement('div');
+                contentWrapper.innerHTML = htmlContent;
+                bubble.appendChild(contentWrapper);
+                const timestampDiv = document.createElement('div');
+                timestampDiv.className = 'timestamp';
+                timestampDiv.textContent = timeStr;
+                bubble.appendChild(timestampDiv);
+                messageRow.appendChild(bubble);
+                dialog.appendChild(messageRow);
+                dialog.scrollTop = dialog.scrollHeight;
+            }
+
+            function addBotTextMessage(text) {
+                addMessage('bot', `<div>${text}</div>`);
+            }
+
+            function addAudioMessageFromUser(file) {
+                const fileURL = URL.createObjectURL(file);
+                const fileName = file.name;
+                const fileSize = (file.size / 1024).toFixed(1);
+                const audioHTML = `
+                    <div class="audio-message">
+                        <span> <span style="font-size:1.4rem;">🎵</span> <strong>${fileName}</strong> (${fileSize} KB)</span>
+                        <div class="audio-player"><audio src="${fileURL}" controls preload="metadata"></audio></div>
+                    </div>
+                `;
+                addMessage('user', audioHTML);
+            }
+
+            // Обновить UI после входа
+            function renderUIForRole() {
+                if (currentUser) {
+                    roleBadge.style.display = 'inline-block';
+                    roleBadge.textContent = currentUser.role === 'admin' ? 'администратор' : 'пользователь';
+                    const btn = document.querySelector('#showAuthModal');
+                    if (btn) btn.innerHTML = `<span>👤</span> ${currentUser.email}`;
+                    
+                    // Показываем админ-панель если админ
+                    if (currentUser.role === 'admin') {
+                        adminPanelContainer.style.display = 'block';
+                        adminPanelContainer.innerHTML = generateAdminPanelHTML();
+                        attachAdminEvents();
+                    } else {
+                        adminPanelContainer.style.display = 'none';
+                    }
+                }
+            }
+
+            // Генерация админ-панели
+            function generateAdminPanelHTML() {
+                const userRows = users.map(u => `
+                    <div class="user-item" data-email="${u.email}">
+                        <span class="user-email">${u.email}</span>
+                        <span class="user-role">${u.role}</span>
+                        ${u.role !== 'admin' ? `<button class="delete-user" data-email="${u.email}">удалить</button>` : '<span style="width:70px;"></span>'}
+                    </div>
+                `).join('');
+                return `
+                    <div class="admin-panel">
+                        <div class="admin-title"><span>⚙️</span> управление пользователями</div>
+                        <div class="user-list" id="adminUserList">${userRows}</div>
+                        <div class="add-user-form">
+                            <input type="email" class="add-user-input" id="newUserEmail" placeholder="email нового пользователя">
+                            <input type="password" class="add-user-input" id="newUserPass" placeholder="пароль">
+                            <button class="add-user-btn" id="addUserBtn">➕ добавить пользователя</button>
+                        </div>
+                    </div>
+                `;
+            }
+
+            function attachAdminEvents() {
+                const addBtn = document.getElementById('addUserBtn');
+                if (addBtn) {
+                    addBtn.addEventListener('click', function() {
+                        const email = document.getElementById('newUserEmail')?.value.trim();
+                        const pass = document.getElementById('newUserPass')?.value.trim();
+                        if (!email || !pass) {
+                            showFloatingNotification('❌ Заполните поля', 'warning', '⚠️');
+                            return;
+                        }
+                        if (!email.includes('@')) {
+                            showFloatingNotification('❌ Некорректный email', 'warning', '⚠️');
+                            return;
+                        }
+                        if (users.find(u => u.email === email)) {
+                            showFloatingNotification(`❌ ${email} уже есть`, 'warning', '⚠️');
+                            return;
+                        }
+                        users.push({ email, password: pass, role: 'user' });
+                        showFloatingNotification(`✅ Пользователь ${email} добавлен`, 'success', '✅');
+                        adminPanelContainer.innerHTML = generateAdminPanelHTML();
+                        attachAdminEvents();
+                    });
+                }
+                document.querySelectorAll('.delete-user').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        const email = this.dataset.email;
+                        if (email === 'adm@gmail.com') return;
+                        users = users.filter(u => u.email !== email);
+                        showFloatingNotification(`🗑 ${email} удалён`, 'info', '🗑️');
+                        adminPanelContainer.innerHTML = generateAdminPanelHTML();
+                        attachAdminEvents();
+                    });
+                });
+            }
+
+            // обработка входа
+            function handleLogin() {
+                const email = loginEmail.value.trim();
+                const pass = loginPassword.value.trim();
+
+                if (!email || !pass) {
+                    loginMessage.className = 'message-box error';
+                    loginMessage.textContent = '❌ Заполните поля';
+                    return;
+                }
+
+                const foundUser = users.find(u => u.email === email && u.password === pass);
+                if (foundUser) {
+                    currentUser = { email: foundUser.email, role: foundUser.role };
+                    
+                    // Показываем уведомление
+                    showFloatingNotification(`✅ ${foundUser.email} вошёл как ${foundUser.role}`, 'success', foundUser.role === 'admin' ? '👑' : '👤');
+                    
+                    // Скрываем модальное окно входа
+                    modal.style.display = 'none';
+                    
+                    // Показываем основной контент и кнопку профиля
+                    mainContainer.style.display = 'block';
+                    authGroup.style.display = 'flex';
+                    
+                    // Очищаем поля
+                    loginEmail.value = '';
+                    loginPassword.value = '';
+                    loginMessage.style.display = 'none';
+                    
+                    // Обновляем интерфейс
+                    renderUIForRole();
+                } else {
+                    loginMessage.className = 'message-box error';
+                    loginMessage.textContent = '❌ Неверный email или пароль';
+                }
+            }
+
+            // Выход
+            function logout() {
+                if (currentUser) {
+                    const email = currentUser.email;
+                    currentUser = null;
+                    showFloatingNotification(`🔓 ${email} вышел`, 'info', '👋');
+                }
+                // Скрываем контент, показываем окно входа
+                mainContainer.style.display = 'none';
+                authGroup.style.display = 'none';
+                modal.style.display = 'flex';
+                loginEmail.value = '';
+                loginPassword.value = '';
+                loginMessage.style.display = 'none';
+            }
+
+            // Кнопка входа/профиля (теперь для выхода)
+            document.getElementById('showAuthModal').addEventListener('click', function() {
+                if (currentUser) {
+                    if (confirm('Выйти из системы?')) {
+                        logout();
+                    }
+                }
+            });
+
+            // Обработчики входа
+            loginButton.addEventListener('click', handleLogin);
+            loginEmail.addEventListener('keypress', e => e.key === 'Enter' && handleLogin());
+            loginPassword.addEventListener('keypress', e => e.key === 'Enter' && handleLogin());
+
+            // закрытие модалки через крестик невозможно — он скрыт, и это правильно (нельзя закрыть без входа)
+            // но если вдруг появится, сделаем заглушку
+            closeBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                // ничего не делаем — вход обязателен
+            });
+
+            // Аудио-функции доступны только после входа (инпут появится вместе с контейнером)
+            fileInput.addEventListener('change', function(e) {
+                if (!currentUser) return; // дополнительная страховка
+                const file = e.target.files[0];
+                if (!file) {
+                    fileStatus.textContent = 'файл не выбран';
+                    return;
+                }
+                const sizeKb = (file.size / 1024).toFixed(1);
+                fileStatus.textContent = `${file.name} (${sizeKb} KB)`;
+                addAudioMessageFromUser(file);
+                setTimeout(() => addBotTextMessage(`🔍 Нейросеть получила «${file.name}». Анализ...`), 500);
+                setTimeout(() => addBotTextMessage(`✨ Сигнал из галактики Андромеды (тестовый ответ)`), 2000);
+                fileInput.value = '';
+            });
+
+            // Изначально контент скрыт, модалка открыта (уже задано в HTML)
+        })();
+    </script>
+</body>
+</html>
