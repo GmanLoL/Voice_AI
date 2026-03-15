@@ -1,0 +1,939 @@
+INFO 2026-02-08 12:34:42,860 autoreload Watching for file changes with StatReloader
+INFO 2026-02-08 12:41:44,649 autoreload C:\Users\User\Desktop\PRJvs\test1\backcaf\cafback\cafback\urls.py changed, reloading.
+INFO 2026-02-08 12:41:46,463 autoreload Watching for file changes with StatReloader
+INFO 2026-02-08 12:42:08,614 autoreload C:\Users\User\Desktop\PRJvs\test1\backcaf\cafback\api\urls.py changed, reloading.
+INFO 2026-02-08 12:42:10,285 autoreload Watching for file changes with StatReloader
+INFO 2026-02-08 12:42:12,196 autoreload C:\Users\User\Desktop\PRJvs\test1\backcaf\cafback\api\urls.py changed, reloading.
+INFO 2026-02-08 12:42:13,564 autoreload Watching for file changes with StatReloader
+INFO 2026-02-08 12:43:10,590 log "OPTIONS /api/auth/login/ HTTP/1.1" 200 0
+INFO 2026-02-08 12:45:41,331 autoreload C:\Users\User\Desktop\PRJvs\test1\backcaf\cafback\cafback\settings.py changed, reloading.
+INFO 2026-02-08 12:45:43,394 autoreload Watching for file changes with StatReloader
+INFO 2026-02-08 12:45:48,321 autoreload C:\Users\User\Desktop\PRJvs\test1\backcaf\cafback\cafback\settings.py changed, reloading.
+INFO 2026-02-08 12:45:49,870 autoreload Watching for file changes with StatReloader
+INFO 2026-02-08 12:46:11,902 autoreload C:\Users\User\Desktop\PRJvs\test1\backcaf\cafback\cafback\settings.py changed, reloading.
+INFO 2026-02-08 12:46:13,698 autoreload Watching for file changes with StatReloader
+INFO 2026-02-08 12:46:29,086 autoreload C:\Users\User\Desktop\PRJvs\test1\backcaf\cafback\cafback\settings.py changed, reloading.
+INFO 2026-02-08 12:46:30,572 autoreload Watching for file changes with StatReloader
+INFO 2026-02-08 12:46:40,293 autoreload C:\Users\User\Desktop\PRJvs\test1\backcaf\cafback\cafback\settings.py changed, reloading.
+INFO 2026-02-08 12:46:41,919 autoreload Watching for file changes with StatReloader
+INFO 2026-02-08 12:46:51,621 autoreload C:\Users\User\Desktop\PRJvs\test1\backcaf\cafback\cafback\settings.py changed, reloading.
+INFO 2026-02-08 12:46:53,327 autoreload Watching for file changes with StatReloader
+INFO 2026-02-08 12:46:54,238 log "OPTIONS /api/auth/login/ HTTP/1.1" 200 0
+INFO 2026-02-08 12:46:54,244 views Попытка входа пользователя: dsa
+WARNING 2026-02-08 12:46:55,462 views Неудачная попытка входа: dsa
+WARNING 2026-02-08 12:46:55,463 log Unauthorized: /api/auth/login/
+WARNING 2026-02-08 12:46:55,464 log "POST /api/auth/login/ HTTP/1.1" 401 75
+INFO 2026-02-08 12:47:31,823 views Попытка входа пользователя: Говно
+WARNING 2026-02-08 12:47:33,085 views Неудачная попытка входа: Говно
+WARNING 2026-02-08 12:47:33,086 log Unauthorized: /api/auth/login/
+WARNING 2026-02-08 12:47:33,087 log "POST /api/auth/login/ HTTP/1.1" 401 75
+INFO 2026-02-08 12:48:05,800 log "OPTIONS /api/auth/register HTTP/1.1" 200 0
+ERROR 2026-02-08 12:48:06,003 log Internal Server Error: /api/auth/register
+Traceback (most recent call last):
+  File "C:\Python314\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Python314\Lib\site-packages\django\utils\deprecation.py", line 311, in __call__
+    response = self.process_response(request, response)
+  File "C:\Python314\Lib\site-packages\django\middleware\common.py", line 109, in process_response
+    self.get_full_path_with_slash(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Python314\Lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+    ...<9 lines>...
+    )
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/api/auth/register/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2026-02-08 12:48:06,010 log "POST /api/auth/register HTTP/1.1" 500 73954
+ERROR 2026-02-08 12:48:57,938 log Internal Server Error: /api/auth/register
+Traceback (most recent call last):
+  File "C:\Python314\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Python314\Lib\site-packages\django\utils\deprecation.py", line 311, in __call__
+    response = self.process_response(request, response)
+  File "C:\Python314\Lib\site-packages\django\middleware\common.py", line 109, in process_response
+    self.get_full_path_with_slash(request)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Python314\Lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+    ...<9 lines>...
+    )
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/api/auth/register/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2026-02-08 12:48:57,941 log "POST /api/auth/register HTTP/1.1" 500 73954
+INFO 2026-02-08 12:55:05,725 log "OPTIONS /api/auth/register/ HTTP/1.1" 200 0
+INFO 2026-02-08 12:55:05,727 views Регистрация нового пользователя: AAAA
+WARNING 2026-02-08 12:55:05,795 views Ошибки валидации: {'email': [ErrorDetail(string='пользователь с таким email уже существует.', code='unique')]}
+WARNING 2026-02-08 12:55:05,796 log Bad Request: /api/auth/register/
+WARNING 2026-02-08 12:55:05,797 log "POST /api/auth/register/ HTTP/1.1" 400 114
+INFO 2026-02-08 12:55:33,025 views Регистрация нового пользователя: AAAA
+INFO 2026-02-08 12:55:34,322 views Пользователь AAAA успешно зарегистрирован (ID: 2)
+INFO 2026-02-08 12:55:34,325 log "POST /api/auth/register/ HTTP/1.1" 201 711
+INFO 2026-02-08 12:56:17,119 views Регистрация нового пользователя: ZVAL
+INFO 2026-02-08 12:56:18,398 views Пользователь ZVAL успешно зарегистрирован (ID: 3)
+INFO 2026-02-08 12:56:18,400 log "POST /api/auth/register/ HTTP/1.1" 201 703
+INFO 2026-02-08 12:57:03,718 views Попытка входа пользователя: abcd@gmail.ru
+WARNING 2026-02-08 12:57:05,083 views Неудачная попытка входа: abcd@gmail.ru
+WARNING 2026-02-08 12:57:05,083 log Unauthorized: /api/auth/login/
+WARNING 2026-02-08 12:57:05,084 log "POST /api/auth/login/ HTTP/1.1" 401 75
+WARNING 2026-02-08 12:57:12,254 log Method Not Allowed: /api/auth/register/
+WARNING 2026-02-08 12:57:12,255 log "GET /api/auth/register/ HTTP/1.1" 405 8699
+INFO 2026-02-08 12:57:12,535 log "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 200 3426
+INFO 2026-02-08 12:57:12,562 log "GET /static/rest_framework/css/prettify.css HTTP/1.1" 200 817
+INFO 2026-02-08 12:57:12,568 log "GET /static/rest_framework/css/default.css HTTP/1.1" 200 1152
+INFO 2026-02-08 12:57:12,569 log "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 200 121457
+INFO 2026-02-08 12:57:12,617 log "GET /static/rest_framework/js/csrf.js HTTP/1.1" 200 1793
+INFO 2026-02-08 12:57:12,685 log "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 200 59
+INFO 2026-02-08 12:57:12,687 log "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 200 3796
+INFO 2026-02-08 12:57:12,722 log "GET /static/rest_framework/js/default.js HTTP/1.1" 200 1268
+INFO 2026-02-08 12:57:12,738 log "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 200 87533
+INFO 2026-02-08 12:57:12,745 log "GET /static/rest_framework/img/grid.png HTTP/1.1" 200 1458
+INFO 2026-02-08 12:57:12,809 log "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 200 13632
+INFO 2026-02-08 12:57:12,893 log "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 200 39680
+INFO 2026-02-08 12:57:18,440 views Попытка входа пользователя: ZVAL
+INFO 2026-02-08 12:57:19,772 views Успешный вход пользователя: ZVAL
+INFO 2026-02-08 12:57:19,774 log "POST /api/auth/login/ HTTP/1.1" 200 778
+INFO 2026-02-08 12:58:35,536 views Регистрация нового пользователя: ghyu78i
+INFO 2026-02-08 12:58:36,904 views Пользователь ghyu78i успешно зарегистрирован (ID: 4)
+INFO 2026-02-08 12:58:36,905 log "POST /api/auth/register/ HTTP/1.1" 201 705
+INFO 2026-02-08 13:12:11,640 views Попытка входа пользователя: ewaq
+WARNING 2026-02-08 13:12:12,748 views Неудачная попытка входа: ewaq
+WARNING 2026-02-08 13:12:12,750 log Unauthorized: /api/auth/login/
+WARNING 2026-02-08 13:12:12,751 log "POST /api/auth/login/ HTTP/1.1" 401 75
+INFO 2026-02-08 13:12:37,263 views Регистрация нового пользователя: fgd
+INFO 2026-02-08 13:12:38,469 views Пользователь fgd успешно зарегистрирован (ID: 5)
+INFO 2026-02-08 13:12:38,472 log "POST /api/auth/register/ HTTP/1.1" 201 700
+INFO 2026-02-08 13:20:35,236 autoreload C:\Users\User\Desktop\PRJvs\test1\backcaf\cafback\cafback\settings.py changed, reloading.
+INFO 2026-02-08 13:20:36,603 autoreload Watching for file changes with StatReloader
+INFO 2026-02-08 13:25:31,766 autoreload Watching for file changes with StatReloader
+INFO 2026-02-08 13:38:25,271 log "OPTIONS /api/auth/register/ HTTP/1.1" 200 0
+INFO 2026-02-08 13:38:25,278 views Регистрация нового пользователя: ер
+WARNING 2026-02-08 13:38:25,348 views Ошибки валидации: {'email': [ErrorDetail(string='пользователь с таким email уже существует.', code='unique')]}
+WARNING 2026-02-08 13:38:25,349 log Bad Request: /api/auth/register/
+WARNING 2026-02-08 13:38:25,350 log "POST /api/auth/register/ HTTP/1.1" 400 114
+INFO 2026-02-08 13:38:31,879 views Регистрация нового пользователя: ер
+WARNING 2026-02-08 13:38:31,883 views Ошибки валидации: {'email': [ErrorDetail(string='пользователь с таким email уже существует.', code='unique')]}
+WARNING 2026-02-08 13:38:31,884 log Bad Request: /api/auth/register/
+WARNING 2026-02-08 13:38:31,885 log "POST /api/auth/register/ HTTP/1.1" 400 114
+INFO 2026-02-08 13:39:14,126 views Регистрация нового пользователя: ер
+INFO 2026-02-08 13:39:15,382 views Пользователь ер успешно зарегистрирован (ID: 6)
+INFO 2026-02-08 13:39:15,387 log "POST /api/auth/register/ HTTP/1.1" 201 707
+INFO 2026-02-08 14:12:23,886 views Регистрация нового пользователя: dsa
+WARNING 2026-02-08 14:12:23,892 views Ошибки валидации: {'email': [ErrorDetail(string='пользователь с таким email уже существует.', code='unique')]}
+WARNING 2026-02-08 14:12:23,893 log Bad Request: /api/auth/register/
+WARNING 2026-02-08 14:12:23,894 log "POST /api/auth/register/ HTTP/1.1" 400 114
+INFO 2026-02-08 14:12:41,201 views Регистрация нового пользователя: dsa
+INFO 2026-02-08 14:12:42,439 views Пользователь dsa успешно зарегистрирован (ID: 7)
+INFO 2026-02-08 14:12:42,441 log "POST /api/auth/register/ HTTP/1.1" 201 706
+INFO 2026-02-08 14:31:10,617 views Регистрация нового пользователя: пави
+INFO 2026-02-08 14:31:11,776 views Пользователь пави успешно зарегистрирован (ID: 8)
+INFO 2026-02-08 14:31:11,778 log "POST /api/auth/register/ HTTP/1.1" 201 706
+INFO 2026-02-08 14:41:33,312 autoreload C:\Users\User\Desktop\PRJvs\test1\backcaf\cafback\api\serializers.py changed, reloading.
+INFO 2026-02-08 14:41:37,590 autoreload Watching for file changes with StatReloader
+INFO 2026-02-08 14:42:22,105 autoreload C:\Users\User\Desktop\PRJvs\test1\backcaf\cafback\api\models.py changed, reloading.
+INFO 2026-02-08 14:42:23,368 autoreload Watching for file changes with StatReloader
+INFO 2026-02-08 14:42:39,738 views Попытка входа пользователя: dsa
+ERROR 2026-02-08 14:42:39,742 views Ошибка при входе: no such table: users
+ERROR 2026-02-08 14:42:39,745 log Internal Server Error: /api/auth/login/
+ERROR 2026-02-08 14:42:39,745 log "POST /api/auth/login/ HTTP/1.1" 500 94
+INFO 2026-02-08 14:42:55,170 views Регистрация нового пользователя: Ghyu78i
+ERROR 2026-02-08 14:42:55,175 views Ошибка при регистрации: no such table: users
+ERROR 2026-02-08 14:42:55,176 log Internal Server Error: /api/auth/register/
+ERROR 2026-02-08 14:42:55,177 log "POST /api/auth/register/ HTTP/1.1" 500 106
+INFO 2026-02-08 14:43:36,672 views Регистрация нового пользователя: Ghyu78i
+ERROR 2026-02-08 14:43:36,679 views Ошибка при регистрации: no such table: users
+ERROR 2026-02-08 14:43:36,693 log Internal Server Error: /api/auth/register/
+ERROR 2026-02-08 14:43:36,694 log "POST /api/auth/register/ HTTP/1.1" 500 106
+INFO 2026-02-08 14:44:06,859 autoreload C:\Users\User\Desktop\PRJvs\test1\backcaf\cafback\api\urls.py changed, reloading.
+INFO 2026-02-08 14:44:08,673 autoreload Watching for file changes with StatReloader
+INFO 2026-02-08 14:50:35,270 autoreload C:\Users\User\Desktop\PRJvs\test1\backcaf\cafback\api\views.py changed, reloading.
+INFO 2026-02-08 14:50:37,818 autoreload Watching for file changes with StatReloader
+INFO 2026-02-08 14:51:02,126 autoreload Watching for file changes with StatReloader
+INFO 2026-02-08 14:51:15,207 autoreload C:\Users\User\Desktop\PRJvs\test1\backcaf\cafback\api\urls.py changed, reloading.
+INFO 2026-02-08 14:51:16,607 autoreload Watching for file changes with StatReloader
+INFO 2026-02-08 14:52:58,681 autoreload C:\Users\User\Desktop\PRJvs\test1\backcaf\cafback\api\models.py changed, reloading.
+INFO 2026-02-08 14:53:00,202 autoreload Watching for file changes with StatReloader
+INFO 2026-02-08 14:58:12,201 autoreload C:\Users\User\Desktop\PRJvs\test1\backcaf\cafback\api\views.py changed, reloading.
+INFO 2026-02-08 14:58:17,341 autoreload Watching for file changes with StatReloader
+INFO 2026-02-08 14:58:36,689 autoreload C:\Users\User\Desktop\PRJvs\test1\backcaf\cafback\api\views.py changed, reloading.
+INFO 2026-02-08 14:58:38,360 autoreload Watching for file changes with StatReloader
+INFO 2026-02-08 14:58:47,898 autoreload C:\Users\User\Desktop\PRJvs\test1\backcaf\cafback\api\views.py changed, reloading.
+INFO 2026-02-08 14:58:49,299 autoreload Watching for file changes with StatReloader
+INFO 2026-02-08 14:58:56,640 log "OPTIONS /api/auth/register/ HTTP/1.1" 200 0
+INFO 2026-02-08 14:58:56,673 views Регистрация нового пользователя: Ghyu78i
+WARNING 2026-02-08 14:58:56,743 views Ошибки валидации: {'email': [ErrorDetail(string='пользователь с таким email уже существует.', code='unique')]}
+WARNING 2026-02-08 14:58:56,744 log Bad Request: /api/auth/register/
+WARNING 2026-02-08 14:58:56,744 log "POST /api/auth/register/ HTTP/1.1" 400 114
+INFO 2026-02-08 14:59:05,480 log "OPTIONS /api/auth/login/ HTTP/1.1" 200 0
+INFO 2026-02-08 14:59:05,484 views Попытка входа пользователя: dsa
+WARNING 2026-02-08 14:59:07,064 views Неудачная попытка входа: dsa
+WARNING 2026-02-08 14:59:07,064 log Unauthorized: /api/auth/login/
+WARNING 2026-02-08 14:59:07,065 log "POST /api/auth/login/ HTTP/1.1" 401 75
+INFO 2026-02-08 14:59:22,159 views Регистрация нового пользователя: Ghyu78i
+INFO 2026-02-08 14:59:23,837 views Пользователь Ghyu78i успешно зарегистрирован (ID: 9)
+INFO 2026-02-08 14:59:23,839 log "POST /api/auth/register/ HTTP/1.1" 201 710
+INFO 2026-02-08 14:59:54,352 views Попытка входа пользователя: Ghyu78i
+INFO 2026-02-08 14:59:55,915 views Успешный вход пользователя: Ghyu78i
+INFO 2026-02-08 14:59:55,917 log "POST /api/auth/login/ HTTP/1.1" 200 785
+INFO 2026-02-08 15:11:00,304 autoreload Watching for file changes with StatReloader
+INFO 2026-02-08 15:11:49,045 autoreload Watching for file changes with StatReloader
+INFO 2026-02-08 15:12:11,895 views Регистрация нового пользователя: GGG
+INFO 2026-02-08 15:12:13,409 views Пользователь GGG успешно зарегистрирован (ID: 1)
+INFO 2026-02-08 15:12:13,414 log "POST /api/auth/register/ HTTP/1.1" 201 699
+INFO 2026-02-08 15:14:47,734 autoreload C:\Users\User\Desktop\PRJvs\test1\backcaf\cafback\api\models.py changed, reloading.
+INFO 2026-02-08 15:14:49,378 autoreload Watching for file changes with StatReloader
+INFO 2026-02-08 15:15:27,900 views Регистрация нового пользователя: gfdv
+ERROR 2026-02-08 15:15:28,179 views Ошибка при регистрации: ОШИБКА:  столбец users.email не существует
+LINE 1: SELECT 1 AS "a" FROM "users" WHERE "users"."email" = 'azxc@m...
+                                           ^
+
+ERROR 2026-02-08 15:15:28,183 log Internal Server Error: /api/auth/register/
+ERROR 2026-02-08 15:15:28,183 log "POST /api/auth/register/ HTTP/1.1" 500 106
+INFO 2026-02-08 15:17:12,323 views Регистрация нового пользователя: gfdv
+ERROR 2026-02-08 15:17:13,636 views Ошибка при регистрации: ОШИБКА:  столбец "password" в таблице "users" не существует
+LINE 1: INSERT INTO "users" ("password", "is_superuser", "username",...
+                             ^
+
+ERROR 2026-02-08 15:17:13,637 log Internal Server Error: /api/auth/register/
+ERROR 2026-02-08 15:17:13,638 log "POST /api/auth/register/ HTTP/1.1" 500 106
+INFO 2026-02-08 15:20:17,996 autoreload C:\Users\User\Desktop\PRJvs\test1\backcaf\cafback\api\views.py changed, reloading.
+INFO 2026-02-08 15:20:19,690 autoreload Watching for file changes with StatReloader
+INFO 2026-02-08 15:20:36,055 views Регистрация нового пользователя: gfdv
+ERROR 2026-02-08 15:20:37,886 views Ошибка при регистрации: ОШИБКА:  столбец "password" в таблице "users" не существует
+LINE 1: INSERT INTO "users" ("password", "is_superuser", "username",...
+                             ^
+
+ERROR 2026-02-08 15:20:37,890 log Internal Server Error: /api/auth/register/
+ERROR 2026-02-08 15:20:37,891 log "POST /api/auth/register/ HTTP/1.1" 500 106
+INFO 2026-02-08 15:21:40,214 autoreload C:\Users\User\Desktop\PRJvs\test1\backcaf\cafback\api\views.py changed, reloading.
+INFO 2026-02-08 15:21:42,934 autoreload Watching for file changes with StatReloader
+INFO 2026-02-08 15:22:15,445 views Регистрация нового пользователя: gfdv
+ERROR 2026-02-08 15:22:16,783 views Ошибка при регистрации: ОШИБКА:  столбец "is_superuser" в таблице "users" не существует
+LINE 1: INSERT INTO "users" ("password", "is_superuser", "username",...
+                                         ^
+
+ERROR 2026-02-08 15:22:16,786 log Internal Server Error: /api/auth/register/
+ERROR 2026-02-08 15:22:16,788 log "POST /api/auth/register/ HTTP/1.1" 500 106
+INFO 2026-02-08 15:39:38,473 autoreload C:\Users\User\Desktop\PRJvs\test1\backcaf\cafback\api\models.py changed, reloading.
+INFO 2026-02-08 15:39:40,575 autoreload Watching for file changes with StatReloader
+INFO 2026-02-08 15:40:28,934 autoreload C:\Users\User\Desktop\PRJvs\test1\backcaf\cafback\api\models.py changed, reloading.
+INFO 2026-02-08 15:40:30,354 autoreload Watching for file changes with StatReloader
+INFO 2026-02-08 15:42:17,192 autoreload C:\Users\User\Desktop\PRJvs\test1\backcaf\cafback\api\models.py changed, reloading.
+INFO 2026-02-08 15:42:18,539 autoreload Watching for file changes with StatReloader
+INFO 2026-02-08 15:50:28,785 autoreload C:\Users\User\Desktop\PRJvs\test1\backcaf\cafback\api\models.py changed, reloading.
+INFO 2026-02-08 15:50:30,363 autoreload Watching for file changes with StatReloader
+INFO 2026-02-08 15:51:06,330 views Регистрация нового пользователя: gfdv
+ERROR 2026-02-08 15:51:07,998 views Ошибка при регистрации: ОШИБКА:  столбец "is_superuser" в таблице "users" не существует
+LINE 1: INSERT INTO "users" ("is_superuser", "username", "password",...
+                             ^
+
+ERROR 2026-02-08 15:51:08,001 log Internal Server Error: /api/auth/register/
+ERROR 2026-02-08 15:51:08,002 log "POST /api/auth/register/ HTTP/1.1" 500 106
+INFO 2026-02-08 15:51:53,362 views Регистрация нового пользователя: gfdv
+INFO 2026-02-08 15:51:54,789 views Пользователь gfdv успешно зарегистрирован (ID: 1)
+INFO 2026-02-08 15:51:54,793 log "POST /api/auth/register/ HTTP/1.1" 201 701
+INFO 2026-02-08 15:52:20,634 views Попытка входа пользователя: dsa
+WARNING 2026-02-08 15:52:22,012 views Неудачная попытка входа: dsa
+WARNING 2026-02-08 15:52:22,013 log Unauthorized: /api/auth/login/
+WARNING 2026-02-08 15:52:22,015 log "POST /api/auth/login/ HTTP/1.1" 401 75
+INFO 2026-02-08 15:52:34,449 views Попытка входа пользователя: gfdv
+INFO 2026-02-08 15:52:35,973 views Успешный вход пользователя: gfdv
+INFO 2026-02-08 15:52:35,975 log "POST /api/auth/login/ HTTP/1.1" 200 775
+INFO 2026-02-08 15:54:09,349 views Регистрация нового пользователя: JOPAJOPA
+ERROR 2026-02-08 15:54:10,623 views Ошибка при регистрации: ОШИБКА:  INSERT или UPDATE в таблице "token_blacklist_outstandingtoken" нарушает ограничение внешнего ключа "token_blacklist_outs_user_id_83bc629a_fk_api_user_"
+DETAIL:  Ключ (user_id)=(2) отсутствует в таблице "api_user".
+
+ERROR 2026-02-08 15:54:10,624 log Internal Server Error: /api/auth/register/
+ERROR 2026-02-08 15:54:10,624 log "POST /api/auth/register/ HTTP/1.1" 500 106
+INFO 2026-02-08 16:01:16,050 autoreload C:\Users\User\Desktop\PRJvs\test1\backcaf\cafback\cafback\settings.py changed, reloading.
+INFO 2026-02-08 16:01:17,482 autoreload Watching for file changes with StatReloader
+INFO 2026-02-08 16:01:40,806 views Регистрация нового пользователя: JOPAJOPA
+WARNING 2026-02-08 16:01:40,884 views Ошибки валидации: {'username': [ErrorDetail(string='user с таким username уже существует.', code='unique')]}
+WARNING 2026-02-08 16:01:40,887 log Bad Request: /api/auth/register/
+WARNING 2026-02-08 16:01:40,888 log "POST /api/auth/register/ HTTP/1.1" 400 100
+INFO 2026-02-08 16:02:06,113 views Регистрация нового пользователя: dsa
+WARNING 2026-02-08 16:02:06,298 log Bad Request: /api/auth/register/
+WARNING 2026-02-08 16:02:06,298 log "POST /api/auth/register/ HTTP/1.1" 400 100
+INFO 2026-02-08 16:02:11,476 views Регистрация нового пользователя: dsa
+ERROR 2026-02-08 16:02:12,806 views Ошибка при регистрации: ОШИБКА:  INSERT или UPDATE в таблице "token_blacklist_outstandingtoken" нарушает ограничение внешнего ключа "token_blacklist_outs_user_id_83bc629a_fk_api_user_"
+DETAIL:  Ключ (user_id)=(3) отсутствует в таблице "api_user".
+
+ERROR 2026-02-08 16:02:12,808 log Internal Server Error: /api/auth/register/
+ERROR 2026-02-08 16:02:12,809 log "POST /api/auth/register/ HTTP/1.1" 500 106
+INFO 2026-02-08 16:02:28,033 views Регистрация нового пользователя: dsa
+WARNING 2026-02-08 16:02:28,127 views Ошибки валидации: {'username': [ErrorDetail(string='user с таким username уже существует.', code='unique')]}
+WARNING 2026-02-08 16:02:28,128 log Bad Request: /api/auth/register/
+WARNING 2026-02-08 16:02:28,128 log "POST /api/auth/register/ HTTP/1.1" 400 100
+INFO 2026-02-08 16:06:54,948 autoreload C:\Users\User\Desktop\PRJvs\test1\backcaf\cafback\cafback\settings.py changed, reloading.
+INFO 2026-02-08 16:06:56,547 autoreload Watching for file changes with StatReloader
+INFO 2026-02-08 16:10:40,377 views Регистрация нового пользователя: dsa
+WARNING 2026-02-08 16:10:40,448 views Ошибки валидации: {'username': [ErrorDetail(string='user с таким username уже существует.', code='unique')]}
+WARNING 2026-02-08 16:10:40,450 log Bad Request: /api/auth/register/
+WARNING 2026-02-08 16:10:40,452 log "POST /api/auth/register/ HTTP/1.1" 400 100
+INFO 2026-02-08 16:10:50,483 views Регистрация нового пользователя: dsaы
+INFO 2026-02-08 16:10:51,756 views Пользователь dsaы успешно зарегистрирован (ID: 4)
+INFO 2026-02-08 16:10:51,773 log "POST /api/auth/register/ HTTP/1.1" 201 707
+INFO 2026-02-08 16:11:07,879 views Регистрация нового пользователя: vcxba
+INFO 2026-02-08 16:11:09,146 views Пользователь vcxba успешно зарегистрирован (ID: 5)
+INFO 2026-02-08 16:11:09,147 log "POST /api/auth/register/ HTTP/1.1" 201 701
+INFO 2026-02-08 16:21:58,367 views Регистрация нового пользователя: HHH
+INFO 2026-02-08 16:21:59,561 views Пользователь HHH успешно зарегистрирован (ID: 6)
+INFO 2026-02-08 16:21:59,562 log "POST /api/auth/register/ HTTP/1.1" 201 700
+INFO 2026-02-08 16:22:05,794 views Попытка входа пользователя: HHH
+INFO 2026-02-08 16:22:07,028 views Успешный вход пользователя: HHH
+INFO 2026-02-08 16:22:07,029 log "POST /api/auth/login/ HTTP/1.1" 200 774
+INFO 2026-02-08 16:22:20,209 views Попытка входа пользователя: HHH
+INFO 2026-02-08 16:22:21,441 views Успешный вход пользователя: HHH
+INFO 2026-02-08 16:22:21,442 log "POST /api/auth/login/ HTTP/1.1" 200 774
+INFO 2026-02-08 16:43:32,782 log "OPTIONS /api/user/profile/ HTTP/1.1" 200 0
+INFO 2026-02-08 16:43:32,782 log "OPTIONS /api/user/profile/ HTTP/1.1" 200 0
+WARNING 2026-02-08 16:43:32,822 log Not Found: /api/user/profile/
+WARNING 2026-02-08 16:43:32,823 log "GET /api/user/profile/ HTTP/1.1" 404 13987
+WARNING 2026-02-08 16:43:32,839 log Not Found: /api/user/profile/
+WARNING 2026-02-08 16:43:32,840 log "GET /api/user/profile/ HTTP/1.1" 404 13987
+WARNING 2026-02-08 16:43:40,363 log Not Found: /api/user/profile/
+WARNING 2026-02-08 16:43:40,365 log "GET /api/user/profile/ HTTP/1.1" 404 13987
+INFO 2026-02-08 16:44:23,858 views Регистрация нового пользователя: anus
+INFO 2026-02-08 16:44:25,415 views Пользователь anus успешно зарегистрирован (ID: 7)
+INFO 2026-02-08 16:44:25,417 log "POST /api/auth/register/ HTTP/1.1" 201 702
+INFO 2026-02-08 16:44:31,539 views Попытка входа пользователя: Anus
+INFO 2026-02-08 16:44:32,793 views Попытка входа пользователя: Anus
+WARNING 2026-02-08 16:44:32,851 views Неудачная попытка входа: Anus
+WARNING 2026-02-08 16:44:32,852 log Unauthorized: /api/auth/login/
+WARNING 2026-02-08 16:44:32,857 log "POST /api/auth/login/ HTTP/1.1" 401 75
+WARNING 2026-02-08 16:44:33,994 views Неудачная попытка входа: Anus
+WARNING 2026-02-08 16:44:33,995 log Unauthorized: /api/auth/login/
+WARNING 2026-02-08 16:44:33,995 log "POST /api/auth/login/ HTTP/1.1" 401 75
+INFO 2026-02-08 16:44:35,761 views Попытка входа пользователя: Anus
+WARNING 2026-02-08 16:44:37,045 views Неудачная попытка входа: Anus
+WARNING 2026-02-08 16:44:37,046 log Unauthorized: /api/auth/login/
+WARNING 2026-02-08 16:44:37,046 log "POST /api/auth/login/ HTTP/1.1" 401 75
+INFO 2026-02-08 16:44:41,417 views Попытка входа пользователя: anus
+INFO 2026-02-08 16:44:42,617 views Успешный вход пользователя: anus
+INFO 2026-02-08 16:44:42,618 log "POST /api/auth/login/ HTTP/1.1" 200 776
+WARNING 2026-02-08 16:44:42,631 log Not Found: /api/user/profile/
+WARNING 2026-02-08 16:44:42,633 log "GET /api/user/profile/ HTTP/1.1" 404 13987
+WARNING 2026-02-08 16:44:43,793 log Not Found: /api/user/profile/
+WARNING 2026-02-08 16:44:43,794 log "GET /api/user/profile/ HTTP/1.1" 404 13987
+WARNING 2026-02-08 16:44:48,993 log Not Found: /api/user/profile/
+WARNING 2026-02-08 16:44:48,994 log "PATCH /api/user/profile/ HTTP/1.1" 404 13989
+WARNING 2026-02-08 16:44:57,835 log Not Found: /api/user/profile/
+WARNING 2026-02-08 16:44:57,836 log "PATCH /api/user/profile/ HTTP/1.1" 404 13989
+INFO 2026-02-08 17:04:17,647 autoreload C:\Users\User\Desktop\PRJvs\test1\backcaf\cafback\api\urls.py changed, reloading.
+INFO 2026-02-08 17:04:20,801 autoreload Watching for file changes with StatReloader
+INFO 2026-02-08 17:05:12,574 autoreload C:\Users\User\Desktop\PRJvs\test1\backcaf\cafback\api\urls.py changed, reloading.
+INFO 2026-02-08 17:05:14,763 autoreload Watching for file changes with StatReloader
+INFO 2026-02-08 17:06:57,016 autoreload C:\Users\User\Desktop\PRJvs\test1\backcaf\cafback\api\views.py changed, reloading.
+INFO 2026-02-08 17:06:58,546 autoreload Watching for file changes with StatReloader
+INFO 2026-02-08 17:58:25,602 log "OPTIONS /api/auth/register/ HTTP/1.1" 200 0
+INFO 2026-02-08 17:58:25,614 views Регистрация нового пользователя: gGGGG
+INFO 2026-02-08 17:58:27,365 views Пользователь gGGGG успешно зарегистрирован (ID: 8)
+INFO 2026-02-08 17:58:27,393 log "POST /api/auth/register/ HTTP/1.1" 201 701
+INFO 2026-02-08 19:36:22,396 autoreload Watching for file changes with StatReloader
+INFO 2026-02-08 19:44:56,572 log "OPTIONS /api/auth/login/ HTTP/1.1" 200 0
+INFO 2026-02-08 19:44:56,581 views Попытка входа пользователя: anus
+INFO 2026-02-08 19:44:57,855 views Попытка входа пользователя: anus
+INFO 2026-02-08 19:44:58,581 views Успешный вход пользователя: anus
+INFO 2026-02-08 19:44:58,609 log "POST /api/auth/login/ HTTP/1.1" 200 776
+INFO 2026-02-08 19:44:58,618 log "OPTIONS /api/user/profile/ HTTP/1.1" 200 0
+WARNING 2026-02-08 19:44:58,623 log Unauthorized: /api/user/profile/
+WARNING 2026-02-08 19:44:58,623 log "GET /api/user/profile/ HTTP/1.1" 401 226
+INFO 2026-02-08 19:44:59,689 views Успешный вход пользователя: anus
+INFO 2026-02-08 19:44:59,691 log "POST /api/auth/login/ HTTP/1.1" 200 776
+WARNING 2026-02-08 19:44:59,703 log Unauthorized: /api/user/profile/
+WARNING 2026-02-08 19:44:59,704 log "GET /api/user/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-08 19:45:00,543 log Unauthorized: /api/user/profile/
+WARNING 2026-02-08 19:45:00,544 log "GET /api/user/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-08 19:45:04,591 log Unauthorized: /api/user/profile/
+WARNING 2026-02-08 19:45:04,593 log "PATCH /api/user/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-08 19:45:20,920 log Unauthorized: /api/user/profile/
+WARNING 2026-02-08 19:45:20,922 log "PATCH /api/user/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-08 19:45:29,258 log Unauthorized: /api/user/profile/
+WARNING 2026-02-08 19:45:29,262 log "GET /api/user/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-08 19:45:29,347 log Unauthorized: /api/user/profile/
+WARNING 2026-02-08 19:45:29,360 log "GET /api/user/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-08 19:45:30,717 log Unauthorized: /api/user/profile/
+WARNING 2026-02-08 19:45:30,718 log "GET /api/user/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-08 19:45:34,408 log Unauthorized: /api/user/profile/
+WARNING 2026-02-08 19:45:34,421 log "PATCH /api/user/profile/ HTTP/1.1" 401 226
+INFO 2026-02-08 19:45:55,575 autoreload C:\Users\User\Desktop\PRJvs\test1\backcaf\cafback\api\urls.py changed, reloading.
+INFO 2026-02-08 19:45:57,560 autoreload Watching for file changes with StatReloader
+INFO 2026-02-08 20:01:10,085 autoreload Watching for file changes with StatReloader
+INFO 2026-02-08 21:24:32,261 autoreload Watching for file changes with StatReloader
+INFO 2026-02-09 18:15:41,020 autoreload Watching for file changes with StatReloader
+INFO 2026-02-09 18:15:54,299 autoreload C:\Users\User\Desktop\PRJvs\test1\backcaf\cafback\api\urls.py changed, reloading.
+INFO 2026-02-09 18:15:56,024 autoreload Watching for file changes with StatReloader
+INFO 2026-02-09 18:23:59,386 log "OPTIONS /api/auth/register/ HTTP/1.1" 200 0
+INFO 2026-02-09 18:23:59,392 views Регистрация нового пользователя: Admin
+INFO 2026-02-09 18:24:01,217 views Пользователь Admin успешно зарегистрирован (ID: 9)
+INFO 2026-02-09 18:24:01,246 log "POST /api/auth/register/ HTTP/1.1" 201 705
+INFO 2026-02-09 18:24:08,153 log "OPTIONS /api/auth/login/ HTTP/1.1" 200 0
+INFO 2026-02-09 18:24:08,155 views Попытка входа пользователя: Admin
+INFO 2026-02-09 18:24:09,672 views Попытка входа пользователя: Admin
+INFO 2026-02-09 18:24:09,819 views Успешный вход пользователя: Admin
+INFO 2026-02-09 18:24:09,820 log "POST /api/auth/login/ HTTP/1.1" 200 779
+INFO 2026-02-09 18:24:09,825 log "OPTIONS /api/user/profile/ HTTP/1.1" 200 0
+WARNING 2026-02-09 18:24:09,870 log Not Found: /api/user/profile/
+WARNING 2026-02-09 18:24:09,871 log "GET /api/user/profile/ HTTP/1.1" 404 13987
+INFO 2026-02-09 18:24:11,083 views Успешный вход пользователя: Admin
+INFO 2026-02-09 18:24:11,085 log "POST /api/auth/login/ HTTP/1.1" 200 779
+WARNING 2026-02-09 18:24:11,099 log Not Found: /api/user/profile/
+WARNING 2026-02-09 18:24:11,100 log "GET /api/user/profile/ HTTP/1.1" 404 13987
+WARNING 2026-02-09 18:24:11,128 log Not Found: /api/user/profile/
+WARNING 2026-02-09 18:24:11,131 log "GET /api/user/profile/ HTTP/1.1" 404 13987
+WARNING 2026-02-09 18:24:15,260 log Not Found: /api/user/profile/
+WARNING 2026-02-09 18:24:15,261 log "PATCH /api/user/profile/ HTTP/1.1" 404 13989
+WARNING 2026-02-09 18:24:23,695 log Not Found: /api/user/profile/
+WARNING 2026-02-09 18:24:23,696 log "GET /api/user/profile/ HTTP/1.1" 404 13987
+WARNING 2026-02-09 18:25:21,252 log Not Found: /api/user/profile/
+WARNING 2026-02-09 18:25:21,253 log "GET /api/user/profile/ HTTP/1.1" 404 13987
+WARNING 2026-02-09 18:25:21,267 log Not Found: /api/user/profile/
+WARNING 2026-02-09 18:25:21,286 log "GET /api/user/profile/ HTTP/1.1" 404 13987
+WARNING 2026-02-09 18:25:21,301 log Not Found: /api/user/profile/
+WARNING 2026-02-09 18:25:21,306 log "GET /api/user/profile/ HTTP/1.1" 404 13987
+WARNING 2026-02-09 18:25:21,332 log Not Found: /api/user/profile/
+WARNING 2026-02-09 18:25:21,334 log "GET /api/user/profile/ HTTP/1.1" 404 13987
+WARNING 2026-02-09 18:32:39,466 log Not Found: /api/user/profile/
+WARNING 2026-02-09 18:32:39,468 log "GET /api/user/profile/ HTTP/1.1" 404 13987
+WARNING 2026-02-09 18:32:41,887 log Not Found: /api/user/profile/
+WARNING 2026-02-09 18:32:41,894 log "GET /api/user/profile/ HTTP/1.1" 404 13987
+WARNING 2026-02-09 18:32:41,911 log Not Found: /api/user/profile/
+WARNING 2026-02-09 18:32:41,913 log "GET /api/user/profile/ HTTP/1.1" 404 13987
+INFO 2026-02-09 18:36:24,204 views Попытка входа пользователя: Admin
+INFO 2026-02-09 18:36:25,803 views Успешный вход пользователя: Admin
+INFO 2026-02-09 18:36:25,805 log "POST /api/auth/login/ HTTP/1.1" 200 779
+WARNING 2026-02-09 18:36:25,822 log Not Found: /api/user/profile/
+WARNING 2026-02-09 18:36:25,823 log "GET /api/user/profile/ HTTP/1.1" 404 13987
+WARNING 2026-02-09 18:36:27,851 log Not Found: /api/user/profile/
+WARNING 2026-02-09 18:36:27,852 log "GET /api/user/profile/ HTTP/1.1" 404 13987
+WARNING 2026-02-09 18:36:27,867 log Not Found: /api/user/profile/
+WARNING 2026-02-09 18:36:27,877 log "GET /api/user/profile/ HTTP/1.1" 404 13987
+WARNING 2026-02-09 18:36:27,891 log Not Found: /api/user/profile/
+WARNING 2026-02-09 18:36:27,907 log "GET /api/user/profile/ HTTP/1.1" 404 13987
+WARNING 2026-02-09 18:36:27,930 log Not Found: /api/user/profile/
+WARNING 2026-02-09 18:36:27,940 log "GET /api/user/profile/ HTTP/1.1" 404 13987
+WARNING 2026-02-09 18:36:28,776 log Not Found: /api/user/profile/
+WARNING 2026-02-09 18:36:28,780 log "GET /api/user/profile/ HTTP/1.1" 404 13987
+WARNING 2026-02-09 18:36:28,832 log Not Found: /api/user/profile/
+WARNING 2026-02-09 18:36:28,834 log "GET /api/user/profile/ HTTP/1.1" 404 13987
+WARNING 2026-02-09 18:36:28,850 log Not Found: /api/user/profile/
+WARNING 2026-02-09 18:36:28,853 log "GET /api/user/profile/ HTTP/1.1" 404 13987
+WARNING 2026-02-09 18:36:28,867 log Not Found: /api/user/profile/
+WARNING 2026-02-09 18:36:28,871 log "GET /api/user/profile/ HTTP/1.1" 404 13987
+WARNING 2026-02-09 18:37:00,483 log Not Found: /api/user/profile/
+WARNING 2026-02-09 18:37:00,484 log "GET /api/user/profile/ HTTP/1.1" 404 13987
+WARNING 2026-02-09 18:37:00,501 log Not Found: /api/user/profile/
+WARNING 2026-02-09 18:37:00,533 log "GET /api/user/profile/ HTTP/1.1" 404 13987
+WARNING 2026-02-09 18:37:00,559 log Not Found: /api/user/profile/
+WARNING 2026-02-09 18:37:00,569 log "GET /api/user/profile/ HTTP/1.1" 404 13987
+WARNING 2026-02-09 18:37:00,601 log Not Found: /api/user/profile/
+WARNING 2026-02-09 18:37:00,603 log "GET /api/user/profile/ HTTP/1.1" 404 13987
+INFO 2026-02-09 18:37:31,493 log "OPTIONS /api/users HTTP/1.1" 200 0
+INFO 2026-02-09 18:37:31,493 log "OPTIONS /api/users HTTP/1.1" 200 0
+WARNING 2026-02-09 18:37:31,519 log Not Found: /api/users
+WARNING 2026-02-09 18:37:31,521 log "GET /api/users HTTP/1.1" 404 13963
+WARNING 2026-02-09 18:37:31,638 log Not Found: /api/users
+WARNING 2026-02-09 18:37:31,652 log Not Found: /api/user/profile/
+WARNING 2026-02-09 18:37:31,654 log "GET /api/users HTTP/1.1" 404 13963
+WARNING 2026-02-09 18:37:31,656 log "GET /api/user/profile/ HTTP/1.1" 404 13987
+WARNING 2026-02-09 18:37:31,685 log Not Found: /api/user/profile/
+WARNING 2026-02-09 18:37:31,693 log "GET /api/user/profile/ HTTP/1.1" 404 13987
+INFO 2026-02-09 18:55:49,133 autoreload C:\Users\User\Desktop\PRJvs\test1\backcaf\cafback\api\views.py changed, reloading.
+INFO 2026-02-09 18:55:51,303 autoreload Watching for file changes with StatReloader
+INFO 2026-02-09 18:56:36,939 autoreload C:\Users\User\Desktop\PRJvs\test1\backcaf\cafback\api\urls.py changed, reloading.
+INFO 2026-02-09 18:56:38,532 autoreload Watching for file changes with StatReloader
+INFO 2026-02-09 18:56:50,014 autoreload C:\Users\User\Desktop\PRJvs\test1\backcaf\cafback\api\urls.py changed, reloading.
+INFO 2026-02-09 18:56:52,006 autoreload Watching for file changes with StatReloader
+INFO 2026-02-09 18:58:29,765 autoreload C:\Users\User\Desktop\PRJvs\test1\backcaf\cafback\cafback\settings.py changed, reloading.
+INFO 2026-02-09 18:58:31,985 autoreload Watching for file changes with StatReloader
+INFO 2026-02-09 18:58:48,913 autoreload C:\Users\User\Desktop\PRJvs\test1\backcaf\cafback\cafback\settings.py changed, reloading.
+INFO 2026-02-09 18:58:51,357 autoreload Watching for file changes with StatReloader
+INFO 2026-02-09 19:00:01,531 autoreload C:\Users\User\Desktop\PRJvs\test1\backcaf\cafback\api\views.py changed, reloading.
+INFO 2026-02-09 19:00:04,132 autoreload Watching for file changes with StatReloader
+INFO 2026-02-09 19:00:23,457 autoreload Watching for file changes with StatReloader
+INFO 2026-02-09 19:06:52,273 autoreload C:\Users\User\Desktop\PRJvs\test1\backcaf\cafback\cafback\settings.py changed, reloading.
+INFO 2026-02-09 19:06:54,192 autoreload Watching for file changes with StatReloader
+INFO 2026-02-09 19:08:24,329 autoreload C:\Users\User\Desktop\PRJvs\test1\backcaf\cafback\api\urls.py changed, reloading.
+INFO 2026-02-09 19:08:28,489 autoreload Watching for file changes with StatReloader
+INFO 2026-02-09 19:08:58,383 autoreload C:\Users\User\Desktop\PRJvs\test1\backcaf\cafback\api\urls.py changed, reloading.
+INFO 2026-02-09 19:09:01,912 autoreload Watching for file changes with StatReloader
+WARNING 2026-02-09 19:11:47,135 log Not Found: /api/users
+WARNING 2026-02-09 19:11:47,136 log "GET /api/users HTTP/1.1" 404 15976
+WARNING 2026-02-09 19:11:47,184 log Not Found: /api/users
+WARNING 2026-02-09 19:11:47,190 log "GET /api/users HTTP/1.1" 404 15976
+INFO 2026-02-09 19:41:23,275 views Попытка входа пользователя: Admin
+INFO 2026-02-09 19:41:24,675 views Успешный вход пользователя: Admin
+INFO 2026-02-09 19:41:24,694 log "POST /api/auth/login/ HTTP/1.1" 200 779
+WARNING 2026-02-09 19:41:24,715 log Not Found: /api/user/profile/
+WARNING 2026-02-09 19:41:24,716 log "GET /api/user/profile/ HTTP/1.1" 404 16000
+WARNING 2026-02-09 19:41:28,344 log Not Found: /api/users
+WARNING 2026-02-09 19:41:28,360 log "GET /api/users HTTP/1.1" 404 15976
+WARNING 2026-02-09 19:41:28,475 log Not Found: /api/users
+WARNING 2026-02-09 19:41:28,522 log Not Found: /api/user/profile/
+WARNING 2026-02-09 19:41:28,546 log "GET /api/users HTTP/1.1" 404 15976
+WARNING 2026-02-09 19:41:28,580 log "GET /api/user/profile/ HTTP/1.1" 404 16000
+WARNING 2026-02-09 19:41:28,627 log Not Found: /api/user/profile/
+WARNING 2026-02-09 19:41:28,633 log "GET /api/user/profile/ HTTP/1.1" 404 16000
+WARNING 2026-02-09 19:41:32,789 log Not Found: /api/users
+WARNING 2026-02-09 19:41:32,798 log "GET /api/users HTTP/1.1" 404 15976
+WARNING 2026-02-09 19:41:32,825 log Not Found: /api/users
+WARNING 2026-02-09 19:41:32,848 log "GET /api/users HTTP/1.1" 404 15976
+WARNING 2026-02-09 19:41:32,938 log Not Found: /api/user/profile/
+WARNING 2026-02-09 19:41:32,982 log "GET /api/user/profile/ HTTP/1.1" 404 16000
+WARNING 2026-02-09 19:41:33,018 log Not Found: /api/user/profile/
+WARNING 2026-02-09 19:41:33,109 log "GET /api/user/profile/ HTTP/1.1" 404 16000
+WARNING 2026-02-09 19:41:36,077 log Not Found: /api/user/profile/
+WARNING 2026-02-09 19:41:36,087 log "GET /api/user/profile/ HTTP/1.1" 404 16000
+WARNING 2026-02-09 19:41:36,120 log Not Found: /api/user/profile/
+WARNING 2026-02-09 19:41:36,121 log "GET /api/user/profile/ HTTP/1.1" 404 16000
+WARNING 2026-02-09 19:41:38,835 log Not Found: /api/user/profile/
+WARNING 2026-02-09 19:41:38,844 log "GET /api/user/profile/ HTTP/1.1" 404 16000
+WARNING 2026-02-09 19:41:38,903 log Not Found: /api/user/profile/
+WARNING 2026-02-09 19:41:38,906 log "GET /api/user/profile/ HTTP/1.1" 404 16000
+WARNING 2026-02-09 19:42:19,038 log Not Found: /api/users
+WARNING 2026-02-09 19:42:19,043 log "GET /api/users HTTP/1.1" 404 15976
+WARNING 2026-02-09 19:42:19,389 log Not Found: /api/users
+WARNING 2026-02-09 19:42:19,390 log "GET /api/users HTTP/1.1" 404 15976
+WARNING 2026-02-09 19:42:26,408 log Not Found: /api/users
+WARNING 2026-02-09 19:42:26,431 log "GET /api/users HTTP/1.1" 404 15976
+WARNING 2026-02-09 19:42:26,495 log Not Found: /api/users
+WARNING 2026-02-09 19:42:26,527 log "GET /api/users HTTP/1.1" 404 15976
+WARNING 2026-02-09 19:42:26,592 log Not Found: /api/users
+WARNING 2026-02-09 19:42:26,594 log "GET /api/users HTTP/1.1" 404 15976
+WARNING 2026-02-09 19:42:26,613 log Not Found: /api/users
+WARNING 2026-02-09 19:42:26,661 log "GET /api/users HTTP/1.1" 404 15976
+INFO 2026-02-09 19:43:16,186 log "OPTIONS /api/users/ HTTP/1.1" 200 0
+WARNING 2026-02-09 19:43:16,497 log Not Found: /api/users/
+WARNING 2026-02-09 19:43:16,521 log "GET /api/users/ HTTP/1.1" 404 15979
+WARNING 2026-02-09 19:43:16,954 log Not Found: /api/users/
+WARNING 2026-02-09 19:43:16,956 log "GET /api/users/ HTTP/1.1" 404 15979
+WARNING 2026-02-09 19:43:19,150 log Not Found: /api/users/
+WARNING 2026-02-09 19:43:19,169 log "GET /api/users/ HTTP/1.1" 404 15979
+WARNING 2026-02-09 19:43:19,189 log Not Found: /api/users/
+WARNING 2026-02-09 19:43:19,193 log "GET /api/users/ HTTP/1.1" 404 15979
+INFO 2026-02-09 19:43:26,038 log "OPTIONS /api/auth/profile/ HTTP/1.1" 200 0
+WARNING 2026-02-09 19:43:26,131 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:43:26,176 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:43:26,478 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:43:26,479 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:43:28,233 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:43:28,247 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:43:28,281 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:43:28,310 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:43:36,790 log Not Found: /api/users
+WARNING 2026-02-09 19:43:36,790 log "GET /api/users HTTP/1.1" 404 15976
+WARNING 2026-02-09 19:43:36,807 log Not Found: /api/users
+WARNING 2026-02-09 19:43:36,867 log "GET /api/users HTTP/1.1" 404 15976
+WARNING 2026-02-09 19:43:37,046 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:43:37,077 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:43:37,085 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:43:37,086 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:47:35,350 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:47:35,352 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:47:35,376 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:47:35,376 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:47:49,320 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:47:49,321 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:47:49,327 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:47:49,327 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:47:59,753 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:47:59,754 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:47:59,761 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:47:59,766 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:48:00,329 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:48:00,330 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:48:00,335 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:48:00,336 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:48:05,352 log Not Found: /api/users
+WARNING 2026-02-09 19:48:05,358 log "GET /api/users HTTP/1.1" 404 15976
+WARNING 2026-02-09 19:48:05,412 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:48:05,432 log Not Found: /api/users
+WARNING 2026-02-09 19:48:05,507 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:48:05,508 log "GET /api/users HTTP/1.1" 404 15976
+WARNING 2026-02-09 19:48:05,577 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:48:05,613 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:48:06,039 log Not Found: /api/users
+WARNING 2026-02-09 19:48:06,040 log "GET /api/users HTTP/1.1" 404 15976
+WARNING 2026-02-09 19:48:06,061 log Not Found: /api/users
+WARNING 2026-02-09 19:48:06,079 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:48:06,080 log "GET /api/users HTTP/1.1" 404 15976
+WARNING 2026-02-09 19:48:06,085 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:48:06,098 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:48:06,145 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:48:09,312 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:48:09,313 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:48:09,316 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:48:09,316 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:48:31,164 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:48:31,167 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:48:31,231 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:48:31,235 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:51:24,334 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:51:24,335 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:51:24,383 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:51:24,384 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:51:35,080 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:51:35,144 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:51:35,175 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:51:35,192 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:51:40,413 log Not Found: /api/users
+WARNING 2026-02-09 19:51:40,417 log "GET /api/users HTTP/1.1" 404 15976
+WARNING 2026-02-09 19:51:40,495 log Not Found: /api/users
+WARNING 2026-02-09 19:51:40,584 log "GET /api/users HTTP/1.1" 404 15976
+WARNING 2026-02-09 19:51:40,593 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:51:40,598 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:51:40,634 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:51:40,667 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:51:40,976 log Not Found: /api/users
+WARNING 2026-02-09 19:51:40,977 log "GET /api/users HTTP/1.1" 404 15976
+WARNING 2026-02-09 19:51:40,996 log Not Found: /api/users
+WARNING 2026-02-09 19:51:41,033 log "GET /api/users HTTP/1.1" 404 15976
+WARNING 2026-02-09 19:51:41,035 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:51:41,094 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:51:41,102 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:51:41,107 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:51:41,227 log Not Found: /api/users
+WARNING 2026-02-09 19:51:41,228 log "GET /api/users HTTP/1.1" 404 15976
+WARNING 2026-02-09 19:51:41,248 log Not Found: /api/users
+WARNING 2026-02-09 19:51:41,260 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:51:41,273 log "GET /api/users HTTP/1.1" 404 15976
+WARNING 2026-02-09 19:51:41,297 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:51:41,323 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:51:41,324 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:51:41,391 log Not Found: /api/users
+WARNING 2026-02-09 19:51:41,392 log "GET /api/users HTTP/1.1" 404 15976
+WARNING 2026-02-09 19:51:41,414 log Not Found: /api/users
+WARNING 2026-02-09 19:51:41,427 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:51:41,430 log "GET /api/users HTTP/1.1" 404 15976
+WARNING 2026-02-09 19:51:41,430 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:51:41,465 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:51:41,494 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:51:41,532 log Not Found: /api/users
+WARNING 2026-02-09 19:51:41,536 log "GET /api/users HTTP/1.1" 404 15976
+WARNING 2026-02-09 19:51:41,558 log Not Found: /api/users
+WARNING 2026-02-09 19:51:41,568 log "GET /api/users HTTP/1.1" 404 15976
+WARNING 2026-02-09 19:51:41,575 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:51:41,577 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:51:41,581 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:51:41,582 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:51:41,688 log Not Found: /api/users
+WARNING 2026-02-09 19:51:41,692 log "GET /api/users HTTP/1.1" 404 15976
+WARNING 2026-02-09 19:51:41,711 log Not Found: /api/users
+WARNING 2026-02-09 19:51:41,723 log "GET /api/users HTTP/1.1" 404 15976
+WARNING 2026-02-09 19:51:41,725 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:51:41,736 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:51:41,753 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:51:41,776 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:51:41,829 log Not Found: /api/users
+WARNING 2026-02-09 19:51:41,831 log "GET /api/users HTTP/1.1" 404 15976
+WARNING 2026-02-09 19:51:41,849 log Not Found: /api/users
+WARNING 2026-02-09 19:51:41,867 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:51:41,880 log "GET /api/users HTTP/1.1" 404 15976
+WARNING 2026-02-09 19:51:41,881 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:51:41,928 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:51:41,932 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:51:41,991 log Not Found: /api/users
+WARNING 2026-02-09 19:51:41,993 log "GET /api/users HTTP/1.1" 404 15976
+WARNING 2026-02-09 19:51:42,027 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:51:42,050 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:51:42,068 log Not Found: /api/users
+WARNING 2026-02-09 19:51:42,076 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:51:42,079 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:51:42,078 log "GET /api/users HTTP/1.1" 404 15976
+WARNING 2026-02-09 19:51:42,164 log Not Found: /api/users
+WARNING 2026-02-09 19:51:42,167 log "GET /api/users HTTP/1.1" 404 15976
+WARNING 2026-02-09 19:51:42,208 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:51:42,221 log Not Found: /api/users
+WARNING 2026-02-09 19:51:42,314 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:51:42,317 log "GET /api/users HTTP/1.1" 404 15976
+WARNING 2026-02-09 19:51:42,441 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:51:42,462 log Not Found: /api/users
+WARNING 2026-02-09 19:51:42,463 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:51:42,464 log "GET /api/users HTTP/1.1" 404 15976
+WARNING 2026-02-09 19:51:42,504 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:51:42,577 log Not Found: /api/users
+WARNING 2026-02-09 19:51:42,584 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:51:42,585 log "GET /api/users HTTP/1.1" 404 15976
+WARNING 2026-02-09 19:51:42,592 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:51:42,596 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:51:42,803 log Not Found: /api/users
+WARNING 2026-02-09 19:51:42,804 log "GET /api/users HTTP/1.1" 404 15976
+WARNING 2026-02-09 19:51:42,822 log Not Found: /api/users
+WARNING 2026-02-09 19:51:42,838 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:51:42,847 log "GET /api/users HTTP/1.1" 404 15976
+WARNING 2026-02-09 19:51:42,851 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:51:42,895 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:51:42,897 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:51:42,996 log Not Found: /api/users
+WARNING 2026-02-09 19:51:42,996 log "GET /api/users HTTP/1.1" 404 15976
+WARNING 2026-02-09 19:51:43,041 log Not Found: /api/users
+WARNING 2026-02-09 19:51:43,044 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:51:43,045 log "GET /api/users HTTP/1.1" 404 15976
+WARNING 2026-02-09 19:51:43,045 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:51:43,050 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:51:43,063 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:55:08,635 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:55:08,637 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:55:08,696 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:55:08,767 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:55:08,876 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:55:08,927 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:55:08,937 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:55:08,955 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:55:09,334 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:55:09,337 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:55:09,438 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:55:09,445 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:55:09,523 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:55:09,575 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:55:09,588 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:55:09,595 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:55:09,818 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:55:09,820 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:55:09,872 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:55:09,893 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:55:09,955 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:55:09,978 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:55:09,997 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:55:10,025 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:57:39,439 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:57:39,441 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:57:39,551 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:57:39,629 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:57:39,680 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:57:39,695 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:57:39,832 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:57:39,903 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:57:40,152 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:57:40,167 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:57:40,229 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:57:40,283 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:57:40,331 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:57:40,337 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:57:40,363 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:57:40,392 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:57:44,896 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:57:44,898 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:57:45,025 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:57:45,106 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:57:45,143 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:57:45,146 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:57:45,153 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:57:45,159 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:57:45,812 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:57:45,816 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:57:45,891 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:57:45,917 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:57:45,935 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:57:45,979 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 19:57:46,010 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 19:57:46,017 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 20:03:42,676 log Unauthorized: /api/api/admin/users/
+WARNING 2026-02-09 20:03:42,678 log Unauthorized: /api/api/admin/purchase-requests/
+WARNING 2026-02-09 20:03:42,679 log Unauthorized: /api/api/admin/payments/
+WARNING 2026-02-09 20:03:42,681 log Unauthorized: /api/api/chef/inventory/
+WARNING 2026-02-09 20:03:42,682 log "GET /api/api/admin/users/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:03:42,682 log "GET /api/api/admin/purchase-requests/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:03:42,685 log "GET /api/api/admin/payments/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:03:42,689 log "GET /api/api/chef/inventory/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:03:42,692 log Unauthorized: /api/api/chef/inventory/
+WARNING 2026-02-09 20:03:42,694 log Unauthorized: /api/api/admin/purchase-requests/
+WARNING 2026-02-09 20:03:42,695 log Unauthorized: /api/api/admin/users/
+WARNING 2026-02-09 20:03:42,696 log Unauthorized: /api/api/admin/payments/
+WARNING 2026-02-09 20:03:42,697 log "GET /api/api/chef/inventory/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:03:42,700 log "GET /api/api/admin/purchase-requests/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:03:42,703 log "GET /api/api/admin/users/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:03:42,711 log "GET /api/api/admin/payments/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:05:31,876 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 20:05:31,886 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 20:05:31,896 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 20:05:31,904 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 20:05:33,041 log Unauthorized: /api/api/admin/users/
+WARNING 2026-02-09 20:05:33,042 log Unauthorized: /api/api/admin/purchase-requests/
+WARNING 2026-02-09 20:05:33,044 log Unauthorized: /api/api/chef/inventory/
+WARNING 2026-02-09 20:05:33,045 log Unauthorized: /api/api/admin/payments/
+WARNING 2026-02-09 20:05:33,046 log "GET /api/api/admin/users/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:05:33,047 log "GET /api/api/admin/purchase-requests/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:05:33,049 log "GET /api/api/chef/inventory/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:05:33,050 log "GET /api/api/admin/payments/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:05:33,053 log Unauthorized: /api/api/admin/purchase-requests/
+WARNING 2026-02-09 20:05:33,057 log Unauthorized: /api/api/admin/users/
+WARNING 2026-02-09 20:05:33,059 log Unauthorized: /api/api/admin/payments/
+WARNING 2026-02-09 20:05:33,062 log Unauthorized: /api/api/chef/inventory/
+WARNING 2026-02-09 20:05:33,063 log "GET /api/api/admin/purchase-requests/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:05:33,063 log "GET /api/api/admin/users/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:05:33,065 log "GET /api/api/admin/payments/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:05:33,066 log "GET /api/api/chef/inventory/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:05:36,066 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 20:05:36,072 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 20:05:36,077 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 20:05:36,079 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 20:07:14,720 log Unauthorized: /api/api/admin/users/
+WARNING 2026-02-09 20:07:14,722 log Unauthorized: /api/api/admin/purchase-requests/
+WARNING 2026-02-09 20:07:14,724 log Unauthorized: /api/api/admin/payments/
+WARNING 2026-02-09 20:07:14,726 log Unauthorized: /api/api/chef/inventory/
+WARNING 2026-02-09 20:07:14,733 log "GET /api/api/admin/users/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:07:14,736 log "GET /api/api/admin/purchase-requests/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:07:14,738 log "GET /api/api/admin/payments/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:07:14,761 log "GET /api/api/chef/inventory/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:07:14,777 log Unauthorized: /api/api/chef/inventory/
+WARNING 2026-02-09 20:07:14,784 log Unauthorized: /api/api/admin/payments/
+WARNING 2026-02-09 20:07:14,788 log Unauthorized: /api/api/admin/users/
+WARNING 2026-02-09 20:07:14,791 log Unauthorized: /api/api/admin/purchase-requests/
+WARNING 2026-02-09 20:07:14,846 log "GET /api/api/chef/inventory/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:07:14,856 log "GET /api/api/admin/payments/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:07:14,960 log "GET /api/api/admin/users/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:07:14,977 log "GET /api/api/admin/purchase-requests/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:07:29,751 log Unauthorized: /api/api/admin/users/
+WARNING 2026-02-09 20:07:29,752 log Unauthorized: /api/api/admin/purchase-requests/
+WARNING 2026-02-09 20:07:29,754 log Unauthorized: /api/api/chef/inventory/
+WARNING 2026-02-09 20:07:29,756 log Unauthorized: /api/api/admin/payments/
+WARNING 2026-02-09 20:07:29,759 log "GET /api/api/admin/users/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:07:29,761 log "GET /api/api/admin/purchase-requests/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:07:29,766 log "GET /api/api/chef/inventory/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:07:29,788 log "GET /api/api/admin/payments/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:07:29,866 log Unauthorized: /api/api/admin/purchase-requests/
+WARNING 2026-02-09 20:07:29,884 log Unauthorized: /api/api/admin/users/
+WARNING 2026-02-09 20:07:29,976 log Unauthorized: /api/api/admin/payments/
+WARNING 2026-02-09 20:07:30,055 log Unauthorized: /api/api/chef/inventory/
+WARNING 2026-02-09 20:07:30,060 log "GET /api/api/admin/purchase-requests/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:07:30,066 log "GET /api/api/admin/users/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:07:30,119 log "GET /api/api/admin/payments/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:07:30,136 log "GET /api/api/chef/inventory/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:10:11,291 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 20:10:11,292 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 20:10:11,360 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 20:10:11,577 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 20:10:11,722 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 20:10:11,733 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 20:10:11,781 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 20:10:11,861 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 20:10:13,287 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 20:10:13,291 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 20:10:13,370 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 20:10:13,400 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 20:10:13,466 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 20:10:13,467 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 20:10:13,476 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 20:10:13,478 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 20:10:13,988 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 20:10:13,991 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 20:10:14,041 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 20:10:14,056 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 20:10:14,130 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 20:10:14,146 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 20:10:14,150 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 20:10:14,152 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 20:10:14,476 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 20:10:14,477 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 20:10:52,311 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 20:10:52,312 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 20:10:52,315 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 20:10:52,316 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 20:11:00,862 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 20:11:00,864 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 20:11:00,880 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 20:11:00,936 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 20:11:01,021 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 20:11:01,038 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 20:11:01,098 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 20:11:01,106 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 20:11:01,681 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 20:11:01,683 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 20:11:01,692 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 20:11:01,733 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 20:11:01,816 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 20:11:01,830 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 20:11:01,834 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 20:11:01,839 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 20:11:19,546 log Unauthorized: /api/api/admin/users/
+WARNING 2026-02-09 20:11:19,547 log "GET /api/api/admin/users/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:11:19,564 log Unauthorized: /api/api/admin/purchase-requests/
+WARNING 2026-02-09 20:11:19,575 log "GET /api/api/admin/purchase-requests/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:11:19,580 log Unauthorized: /api/api/admin/payments/
+WARNING 2026-02-09 20:11:19,618 log "GET /api/api/admin/payments/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:11:19,626 log Unauthorized: /api/api/chef/inventory/
+WARNING 2026-02-09 20:11:19,635 log "GET /api/api/chef/inventory/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:11:19,666 log Unauthorized: /api/api/admin/users/
+WARNING 2026-02-09 20:11:19,681 log "GET /api/api/admin/users/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:11:19,696 log Unauthorized: /api/api/admin/purchase-requests/
+WARNING 2026-02-09 20:11:19,698 log "GET /api/api/admin/purchase-requests/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:11:19,711 log Unauthorized: /api/api/admin/payments/
+WARNING 2026-02-09 20:11:19,713 log "GET /api/api/admin/payments/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:11:19,717 log Unauthorized: /api/api/chef/inventory/
+WARNING 2026-02-09 20:11:19,733 log "GET /api/api/chef/inventory/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:11:39,064 log Unauthorized: /api/api/admin/users/
+WARNING 2026-02-09 20:11:39,066 log Unauthorized: /api/api/admin/purchase-requests/
+WARNING 2026-02-09 20:11:39,068 log Unauthorized: /api/api/chef/inventory/
+WARNING 2026-02-09 20:11:39,069 log Unauthorized: /api/api/admin/payments/
+WARNING 2026-02-09 20:11:39,071 log "GET /api/api/admin/users/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:11:39,075 log "GET /api/api/admin/purchase-requests/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:11:39,076 log "GET /api/api/chef/inventory/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:11:39,077 log "GET /api/api/admin/payments/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:11:45,826 log Unauthorized: /api/api/admin/users/
+WARNING 2026-02-09 20:11:45,829 log Unauthorized: /api/api/admin/purchase-requests/
+WARNING 2026-02-09 20:11:45,830 log Unauthorized: /api/api/admin/payments/
+WARNING 2026-02-09 20:11:45,833 log Unauthorized: /api/api/chef/inventory/
+WARNING 2026-02-09 20:11:45,885 log "GET /api/api/admin/users/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:11:45,898 log "GET /api/api/admin/purchase-requests/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:11:45,906 log "GET /api/api/admin/payments/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:11:45,917 log "GET /api/api/chef/inventory/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:12:12,891 log Unauthorized: /api/api/admin/users/
+WARNING 2026-02-09 20:12:12,893 log Unauthorized: /api/api/admin/purchase-requests/
+WARNING 2026-02-09 20:12:12,894 log Unauthorized: /api/api/chef/inventory/
+WARNING 2026-02-09 20:12:12,895 log Unauthorized: /api/api/admin/payments/
+WARNING 2026-02-09 20:12:12,897 log "GET /api/api/admin/users/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:12:12,900 log "GET /api/api/admin/purchase-requests/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:12:12,903 log "GET /api/api/chef/inventory/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:12:12,903 log "GET /api/api/admin/payments/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:12:38,781 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 20:12:38,782 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 20:12:38,891 log Unauthorized: /api/api/admin/users/
+WARNING 2026-02-09 20:12:38,893 log Unauthorized: /api/api/admin/purchase-requests/
+WARNING 2026-02-09 20:12:38,895 log Unauthorized: /api/api/chef/inventory/
+WARNING 2026-02-09 20:12:38,896 log Unauthorized: /api/api/admin/payments/
+WARNING 2026-02-09 20:12:38,925 log "GET /api/api/admin/users/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:12:38,963 log "GET /api/api/admin/purchase-requests/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:12:38,973 log "GET /api/api/chef/inventory/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:12:38,976 log "GET /api/api/admin/payments/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:12:38,979 log Unauthorized: /api/api/admin/users/
+WARNING 2026-02-09 20:12:38,988 log Unauthorized: /api/api/admin/purchase-requests/
+WARNING 2026-02-09 20:12:38,990 log Unauthorized: /api/api/chef/inventory/
+WARNING 2026-02-09 20:12:38,992 log Unauthorized: /api/api/admin/payments/
+WARNING 2026-02-09 20:12:38,994 log "GET /api/api/admin/users/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:12:38,996 log "GET /api/api/admin/purchase-requests/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:12:39,001 log "GET /api/api/chef/inventory/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:12:39,009 log "GET /api/api/admin/payments/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:12:39,294 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 20:12:39,295 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 20:12:39,297 log Unauthorized: /api/auth/profile/
+WARNING 2026-02-09 20:12:39,298 log "GET /api/auth/profile/ HTTP/1.1" 401 226
+WARNING 2026-02-09 20:12:41,579 log Unauthorized: /api/api/admin/users/
+WARNING 2026-02-09 20:12:41,583 log Unauthorized: /api/api/admin/purchase-requests/
+WARNING 2026-02-09 20:12:41,584 log Unauthorized: /api/api/admin/payments/
+WARNING 2026-02-09 20:12:41,586 log Unauthorized: /api/api/chef/inventory/
+WARNING 2026-02-09 20:12:41,587 log "GET /api/api/admin/users/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:12:41,589 log "GET /api/api/admin/purchase-requests/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:12:41,591 log "GET /api/api/admin/payments/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:12:41,595 log "GET /api/api/chef/inventory/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:12:41,610 log Unauthorized: /api/api/chef/inventory/
+WARNING 2026-02-09 20:12:41,611 log Unauthorized: /api/api/admin/payments/
+WARNING 2026-02-09 20:12:41,613 log Unauthorized: /api/api/admin/purchase-requests/
+WARNING 2026-02-09 20:12:41,615 log Unauthorized: /api/api/admin/users/
+WARNING 2026-02-09 20:12:41,615 log "GET /api/api/chef/inventory/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:12:41,617 log "GET /api/api/admin/payments/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:12:41,627 log "GET /api/api/admin/purchase-requests/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:12:41,634 log "GET /api/api/admin/users/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:16:35,442 log Unauthorized: /api/api/admin/users/
+WARNING 2026-02-09 20:16:35,444 log Unauthorized: /api/api/admin/payments/
+WARNING 2026-02-09 20:16:35,445 log Unauthorized: /api/api/chef/inventory/
+WARNING 2026-02-09 20:16:35,447 log Unauthorized: /api/api/admin/purchase-requests/
+WARNING 2026-02-09 20:16:35,447 log "GET /api/api/admin/users/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:16:35,448 log "GET /api/api/admin/payments/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:16:35,454 log "GET /api/api/chef/inventory/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:16:35,456 log "GET /api/api/admin/purchase-requests/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:16:35,462 log Unauthorized: /api/api/admin/payments/
+WARNING 2026-02-09 20:16:35,464 log Unauthorized: /api/api/admin/users/
+WARNING 2026-02-09 20:16:35,465 log Unauthorized: /api/api/admin/purchase-requests/
+WARNING 2026-02-09 20:16:35,467 log Unauthorized: /api/api/chef/inventory/
+WARNING 2026-02-09 20:16:35,469 log "GET /api/api/admin/payments/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:16:35,474 log "GET /api/api/admin/users/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:16:35,476 log "GET /api/api/admin/purchase-requests/ HTTP/1.1" 401 82
+WARNING 2026-02-09 20:16:35,477 log "GET /api/api/chef/inventory/ HTTP/1.1" 401 82
